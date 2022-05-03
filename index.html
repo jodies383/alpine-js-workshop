@@ -28,7 +28,10 @@
                         <h3>Counter</h3>
                         <p x-text="count"></p>
                         <a class="btn btn-dark" @click="count++">Count Up</a>
-                        <a class="btn btn-dark" @click="count--">Count Down</a>
+                        <template x-if="count > 0">
+                            <a class="btn btn-dark" @click="count--">Count Down</a>
+                        </template>
+
     
                     </div>
                 </span>
@@ -38,9 +41,11 @@
                         <template x-if="countdown > 0">
                         <h1 x-text="countdown"></h1>
                     </template>
-                    <template x-if="countdown === 0">
-                        <h1>0</h1>
-                    </template>
+                    <h1>
+                        <template x-if="countdown === 0">
+                           0
+                        </template>
+                    </h1>
                     </div>
                 </span>
                 <span class="border border-5">
@@ -79,7 +84,12 @@
                         <template x-if="socks=='green'">
                             <p>My socks are green</p>
                         </template>
-                        <a class="btn btn-dark" @click="socks = 'green'">Change Socks</a>
+                        <template x-if="socks=='blue'">
+                            <a class="btn btn-dark" @click="socks = 'green'">Change Socks</a>
+                        </template>
+                        <template x-if="socks=='green'">
+                            <a class="btn btn-dark" @click="socks = 'blue'">Change Socks</a>
+                        </template>
                     </div>
                 </span>
                 <span class="border border-5">
